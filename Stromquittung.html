@@ -1,0 +1,28 @@
+<script type="text/javascript">
+    RED.nodes.registerType('Stromquittung',{
+        category: 'function',
+        color: '#a6bbcf',
+        defaults: {
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "file.png",
+        label: function() {
+            return this.name||"Stromquittung";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="Stromquittung">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="Stromquittung">
+    <p>Erlaubt die Erstellung einer <a href="https://strom-quittung.de/">Strom-Quittung</a> auf Basis von Messwerten innerhalb von Node-RED</p>
+    <h3>Nutzung</h3>
+    <p>Alle im Payload übergebenen Werte werden so lange gesammelt, bis alle Pflichtfelder für eine Quittung vorhanden sind. Sind alle Pflichtfelder vorhanden, so wird eine msg mit der Kennung der Quittung als Payload zurückgegeben.</p>
+</script>
